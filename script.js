@@ -26,11 +26,21 @@ if (charRule < 8) {
 } else if (charRule > 128) {
   alert("Your password must contain less than 129 characters")
 } else {
-
-}
+ let newPassword = new Array(parseInt(charRule));
+};
 
 //1st confirm: "Click OK to include special characters" Use Array, then add to password string
+var specialCharArray = [  "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";","<", "=", ">", "?", "@", "[",];
 
+var randomSpecial = specialCharArray[Math.floor(Math.random()*specialCharArray.length)];
+
+function specialCharConfirm() {
+  var specialCharPrompt = prompt("Click OK to include special characters in your password")
+
+  if (specialCharPrompt) {
+    password.push(randomSpecial);
+  }
+}
 
 //2nd confirm: "Click OK to include numeric characters" Use Array with math.random and math.floor. Add to password string.
 
