@@ -17,30 +17,27 @@ generateBtn.addEventListener("click", writePassword);
 //This function will generate the password
 // generatePassword() {
 
-//1st prompt: "How many characters would you like your password to contain?"  
-//Should check that user must select between 8-128 characters. Needs to have alerts: 1 warns user if they provide less than 8 characters and 1 warns user if they provide greater than 128 
-var charRule = prompt("How many characters would you like your password to contain?");
+//Prompts user for desired character length of password, contains error handling to meet length conditions
+var charRule = parseInt(prompt("How many characters would you like your password to contain?"));
 
 if (charRule < 8) {
   alert("Your password must contain at least 8 characters")
 } else if (charRule > 128) {
   alert("Your password must contain less than 129 characters")
 } else {
- let newPassword = new Array(parseInt(charRule));
-};
+ var newPassword = "";
+}
+
+var potentialCharPool = [];
 
 //1st confirm: "Click OK to include special characters" Use Array, then add to password string
 var specialCharArray = [  "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";","<", "=", ">", "?", "@", "[",];
 
-var randomSpecial = specialCharArray[Math.floor(Math.random()*specialCharArray.length)];
+var specialCharPrompt = confirm("Click OK to include special characters in your password");
 
-function specialCharConfirm() {
-  var specialCharPrompt = prompt("Click OK to include special characters in your password")
-
-  if (specialCharPrompt) {
-    password.push(randomSpecial);
+if (specialCharPrompt) {
+    potentialCharPool.push(...specialCharArray);
   }
-}
 
 //2nd confirm: "Click OK to include numeric characters" Use Array with math.random and math.floor. Add to password string.
 
@@ -52,7 +49,10 @@ function specialCharConfirm() {
 
 //After final confirm, generate password based on the criteria provided. Needs to return as a string.
 
-//Then return that result to an alert/page
+for (let i=0; i < charRule; i++) {
+var randomChar = potentialCharPool[Math.floor(Math.random()*potentialCharPool.length)];
+newPassword+= randomChar;
+}
 
 // }
 
