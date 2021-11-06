@@ -30,16 +30,23 @@ if (charRule < 8) {
 
 var potentialCharPool = [];
 
-//1st confirm: "Click OK to include special characters" Use Array, then add to password string
+//1st confirm (special characters)
 var specialCharArray = [  "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";","<", "=", ">", "?", "@", "[",];
 
 var specialCharPrompt = confirm("Click OK to include special characters in your password");
 
 if (specialCharPrompt) {
     potentialCharPool.push(...specialCharArray);
-  }
+  };
 
-//2nd confirm: "Click OK to include numeric characters" Use Array with math.random and math.floor. Add to password string.
+//2nd confirm (numeric characters)
+var numCharArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+var numCharPrompt = confirm("Click OK to include numeric characters in your password");
+
+if (numCharPrompt) {
+    potentialCharPool.push(...numCharArray);
+  };
 
 //3rd confirm: "Click OK to include lowercase characters" Use Array, then add to password string. 
 
