@@ -66,14 +66,16 @@ if (upperCharPrompt) {
     potentialCharPool.push(...upperCharArray);
   };
 
-//If the user selects "no" for all confirms, should display an alert "Must select at least one character type"
 
-
-//After final confirm, generate password based on the criteria provided. Needs to return as a string.
-
-for (let i=0; i < charRule; i++) {
-var randomChar = potentialCharPool[Math.floor(Math.random()*potentialCharPool.length)];
-newPassword+= randomChar;
+//After 4th confirm, error handling checks that at least 1 of the character type confirms has been selected. If not, displays an alert indicating at least one must be selected.
+//If at least 1 is selected, this will generate a password based on the criteria provided.
+if(specialCharPrompt !== true && numCharPrompt !== true && lowerCharPrompt !== true && upperCharPrompt !== true) {
+    alert("Must select at least one character type");
+} else {
+  for (let i=0; i < charRule; i++) {
+  var randomChar = potentialCharPool[Math.floor(Math.random()*potentialCharPool.length)];
+  newPassword+= randomChar;
+  }
 }
 
 // }
