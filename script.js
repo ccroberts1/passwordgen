@@ -58,9 +58,16 @@ if (lowerCharPrompt) {
   };
 
 //4th confirm (uppercase characters)
+var upperCharArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
+var upperCharPrompt = confirm("Click OK to include uppercase characters in your password");
+
+if (upperCharPrompt) {
+    potentialCharPool.push(...upperCharArray);
+  };
 
 //If the user selects "no" for all confirms, should display an alert "Must select at least one character type"
+
 
 //After final confirm, generate password based on the criteria provided. Needs to return as a string.
 
