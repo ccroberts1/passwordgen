@@ -48,9 +48,17 @@ if (numCharPrompt) {
     potentialCharPool.push(...numCharArray);
   };
 
-//3rd confirm: "Click OK to include lowercase characters" Use Array, then add to password string. 
+//3rd confirm (lowercase characters)
+var lowerCharArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-//4th confirm: "Click OK to include uppercase characters" Use Array, then add to password string.
+var lowerCharPrompt = confirm("Click OK to include lowercase characters in your password");
+
+if (lowerCharPrompt) {
+    potentialCharPool.push(...lowerCharArray);
+  };
+
+//4th confirm (uppercase characters)
+
 
 //If the user selects "no" for all confirms, should display an alert "Must select at least one character type"
 
